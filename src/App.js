@@ -4,11 +4,12 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="panel panel-default">
-         <div className= "panel-body">
-        Hello World
-          </div>
-      </div>
+
+        <div className="card app-content d-block mx-auto" >
+          <div className="card-body">Hello World</div>
+        </div>
+
+
     );
   }
 }

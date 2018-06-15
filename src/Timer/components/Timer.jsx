@@ -6,15 +6,11 @@ import TimerConfig from './TimerConfig.jsx';
 
 // we need to the timing so we are going to refactor it to class component
 class Timer extends Component  {
+  state = {
+    currentTime: moment().hours(0).minutes(25).seconds(0),
 
-      constructor() {
-       super();
+  };
 
-        this.state = {
-          currentTime: moment.duration('25', 'minutes'),
-          baseTime: moment.duration('25', 'minutes'),
-        };
-      }
 
  render()
    {

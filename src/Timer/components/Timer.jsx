@@ -19,11 +19,26 @@ super();
   this.setBaseTime = this.setBaseTime.bind(this);
 }
 
+handleChange(ev){
+  const newBaseTime = this.props.baseTime;
+  console.log(newBaseTime);
+
+  if (ev.target.id === 'hours') newBaseTime.subtract(newBaseTime.get('hours'), 'hours').add(ev.target.value, 'hours');
+  if (ev.target.id === 'minutes') newBaseTime.subtract(newBaseTime.get('minutes'), 'minutes').add(parseInt(ev.target.value), 'minutes');
+  if (ev.target.id === 'seconds') newBaseTime.subtract(newBaseTime.get('seconds'), 'seconds').add(ev.target.value, 'seconds');
+
+}
+
+
+
 setBaseTime(newBaseTime) {
     this.setState({
       baseTime: newBaseTime,
       currentTime: newBaseTime,
     });
+
+    this.handleChange = this.handleChange.bind(this);
+    
 
 }
 

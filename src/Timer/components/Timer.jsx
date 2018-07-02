@@ -39,20 +39,19 @@ class Timer extends Component {
   // }
 
 
-
-  setBaseTime(newBaseTime) {
-    this.setState({
-      baseTime: newBaseTime,
-      currentTime: newBaseTime,
-    });
+//  setBaseTime(newBaseTime) {
+//    this.setState({
+//      baseTime: newBaseTime,
+//      currentTime: newBaseTime,
+//    });
 
     // this.handleChange = this.handleChange.bind(this);
-  }
+//  }
 
 
   render() {
     const { currentTime, baseTime } = this.state;
-    console.log(currentTime);
+
     return (
       <div className="card app-content d-block mx-auto" >
         <div className="card-body">
@@ -60,8 +59,8 @@ class Timer extends Component {
             <div className="row">
               <h3 className="d-block mx-auto"> Pomodoro Technique !!! </h3>
             </div>
-            <TimerDisplay currentTime={this.state.currentTime} />
-            <TimerButton />
+
+            <TimerButton currentTime={this.state.currentTime} />
             {/* <TimerConfig
                 baseTime={this.state.baseTime}
                 setBaseTime={this.setBaseTime}

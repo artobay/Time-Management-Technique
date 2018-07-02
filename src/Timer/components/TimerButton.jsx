@@ -11,8 +11,13 @@ class TimerButton extends Component {
 
   handleStart = () => {
     this.interval = setInterval(() => {
-      this.setState({ currentTime: this.props.currentTime.subtract(1, "minutes") });
+      this.setState({ currentTime: this.props.currentTime.subtract(1, "seconds") });
     }, 1000);
+  }
+
+  handleStop = () => {
+    clearInterval(this.interval)
+
   }
   render() {
     return (
@@ -24,6 +29,8 @@ class TimerButton extends Component {
         </div>
         <div className="button">
           <button className="btn btn-danger d-block mx-auto" onClick={this.handleStart}>Start</button>
+          <br/>
+          <button className="btn btn-danger d-block mx-auto" onClick={this.handleStop}>Stop</button>
         </div>
       </div>
     );

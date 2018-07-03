@@ -8,8 +8,8 @@ import TimerButton from './TimerButton.jsx';
 class Timer extends Component {
   constructor() {
     super();
-    this.state = {
-      currentTime: moment().hours(0).minutes(25).seconds(0),
+    this.state = { 
+      currentTime: moment().hours(0).minutes(5).seconds(0),
       baseTime: moment().hours(0).minutes(0).seconds(0),
     };
     // this.setBaseTime = this.setBaseTime.bind(this);
@@ -56,14 +56,11 @@ class Timer extends Component {
         <div className="card-body">
           <div className="container-fluid">
             <div className="row">
-              <h3 className="d-block mx-auto"> Pomodoro Technique !!! </h3>
+              <h3 className="d-block mx-auto"> Pomodoro Technique !!!
+                <img src="./img/clock.png" height="60" width="60" alt=""/>
+              </h3>
             </div>
-            {/* <TimerDisplay currentTime={this.state.currentTime} /> */}
             <TimerButton currentTime={this.state.currentTime} />
-            {/* <TimerConfig
-                baseTime={this.state.baseTime}
-                setBaseTime={this.setBaseTime}
-              /> */}
             <div className="row control-row">
               <div className="form-group">
                 <div className="col-md-9" >

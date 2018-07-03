@@ -10,7 +10,7 @@ class Timer extends Component {
     super();
     this.state = {
       currentTime: moment().hours(0).minutes(25).seconds(0),
-      baseTime: moment().hours(0).minutes(0).seconds(0),
+       // baseTime: moment().hours(0).minutes(0).seconds(0),
     };
     // this.setBaseTime = this.setBaseTime.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -58,6 +58,7 @@ class Timer extends Component {
           <div className="container-fluid">
             <div className="row">
               <h3 className="d-block mx-auto"> Pomodoro Technique !!! </h3>
+
             </div>
 
             <TimerButton currentTime={this.state.currentTime} />

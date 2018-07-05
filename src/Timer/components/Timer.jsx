@@ -9,7 +9,7 @@ class Timer extends Component {
   constructor() {
     super();
     this.state = { 
-      currentTime: moment().hours(0).minutes(5).seconds(0),
+      currentTime: moment().hours(0).minutes(25).seconds(0),
       baseTime: moment().hours(0).minutes(0).seconds(0),
     };
     // this.setBaseTime = this.setBaseTime.bind(this);

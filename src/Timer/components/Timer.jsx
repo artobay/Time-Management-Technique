@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import TimerDisplay from './TimerDisplay.jsx';
 import TimerButton from './TimerButton.jsx';
 
 

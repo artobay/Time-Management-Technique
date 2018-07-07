@@ -5,7 +5,7 @@ class TimerButton extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentTime: moment().hours(0).minutes(25).seconds(0),
+			currentTime: moment().hours(0).minutes(2).seconds(0),
 			countdown: 4,
 		};
 	}
@@ -28,11 +28,11 @@ class TimerButton extends Component {
 	start() {
 		this.interval = setInterval(() => {
 			if (!(this.state.currentTime.isBefore(moment({ hour: 0, minute: 1 })))) {
-				this.setState({ currentTime: this.props.currentTime.subtract(1, "minutes") });
+				this.setState({ currentTime: this.props.currentTime.subtract(1, "seconds") });
 			} else {
 				this.setState.countdown--;
 
-				this.wait(5000*60);
+				this.wait(5000);
 				this.start();
 				if (this.state.countdown > 1) {
 					this.setState({ currentTime: this.props.currentTime.add(25, "minutes") });
@@ -43,7 +43,7 @@ class TimerButton extends Component {
 					console.log("⏰ Finish");
 				}
 			}
-		}, 1000*60);
+		}, 1000);
 	}
 
 

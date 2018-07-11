@@ -1,56 +1,57 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+
 class TimerButton extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentTime: moment().hours(0).minutes(2).seconds(0),
-			countdown: 4,
+			currentTime: moment().hours(0).minutes(25).seconds(0),
+			title: "Work",
+			counter: 4
 		};
 	}
 
-  handleStart = () => {
-   console.clear();
-   this.start();
- }
-
-	wait(milliseconds) {
-		clearInterval(this.interval);
-		var startTime = new Date().getTime();
-		while(true){
-			if ((new Date().getTime() - startTime) > milliseconds) {
-				break;
-			}
-		}
-	}
-
 	start() {
-		this.interval = setInterval(() => {
-			if (!(this.state.currentTime.isBefore(moment({ hour: 0, minute: 1 })))) {
-				this.setState({ currentTime: this.props.currentTime.subtract(1, "seconds") });
-			} else {
-				this.setState.countdown--;
-
-				this.wait(5000);
-				this.start();
-				if (this.state.countdown > 1) {
-					this.setState({ currentTime: this.props.currentTime.add(25, "minutes") });
-				} else if (this.state.countdown == 1) {
-					this.setState({ currentTime: this.props.currentTime.add(30, "minutes") });
-				} else if (this.state.countdown <= 0) {
-					clearInterval(this.interval);
-					console.log("⏰ Finish");
+		new Promise((resolve, reject) => {
+			this.setState({ title: "Work" });
+			this.setState({ currentTime: moment().hours(0).minutes(10).seconds(0) });
+			var interval = setInterval(() => {
+				this.setState({ currentTime: this.state.currentTime.subtract(1, "seconds") });
+				if ((this.state.currentTime.isBefore(moment({ hour: 0, minute: 0, second: 1 })))) {
+					clearInterval(interval);
+					return resolve();
 				}
-			}
-		}, 1000);
+			}, 5);
+		}).then(() => {
+			this.setState({ currentTime: moment().hours(0).minutes(5).seconds(0) });
+			this.setState({ title: "Rest" });
+			this.setState({ cunter: this.state.cunter - 1 });
+			var restinterval = setInterval(() => {
+				this.setState({ currentTime: this.state.currentTime.subtract(1, "seconds") });
+				if ((this.state.currentTime.isBefore(moment({ hour: 0, minute: 0, second: 1 })))) {
+					clearInterval(restinterval);
+					if (this.state.cunter > 0) {
+						this.start();
+					}
+				}
+			}, 10);
+		});
+	}
+	handleStart = () => {
+		console.clear();
+		this.start();
 	}
 
+	titleChange() {
+		this.setState({ title: "Rest" });
+	}
 
 	render() {
 		return (
 			<div>
-				<div>{this.state.countdown}</div>
+				<div>{this.state.title}</div>
+				<div>{this.state.cunter}</div>
 				<div className="row">
 					<h1 className="d-block mx-auto">
 						{this.state.currentTime.format("HH:mm:ss")}  </h1>

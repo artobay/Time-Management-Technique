@@ -12,7 +12,6 @@ class Timer extends Component {
       currentTime: moment().hours(0).minutes(25).seconds(0),
       baseTime: moment().hours(0).minutes(0).seconds(0),
     };
-    // this.setBaseTime = this.setBaseTime.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -28,26 +27,6 @@ class Timer extends Component {
       }
     }
   }
-  // handleChange(ev) {
-  //   const newBaseTime = this.props.baseTime;
-  //   console.log(newBaseTime);
-
-  //   if (ev.target.id === 'hours') newBaseTime.subtract(newBaseTime.get('hours'), 'hours').add(ev.target.value, 'hours');
-  //   if (ev.target.id === 'minutes') newBaseTime.subtract(newBaseTime.get('minutes'), 'minutes').add(parseInt(ev.target.value), 'minutes');
-  //   if (ev.target.id === 'seconds') newBaseTime.subtract(newBaseTime.get('seconds'), 'seconds').add(ev.target.value, 'seconds');
-
-  // }
-
-
-
-  // setBaseTime(newBaseTime) {
-  //   this.setState({
-  //     baseTime: newBaseTime,
-  //     currentTime: newBaseTime,
-  //   });
-    // this.handleChange = this.handleChange.bind(this);
-  // }
-
 
   render() {
     const { currentTime, baseTime } = this.state;
@@ -64,7 +43,7 @@ class Timer extends Component {
             <div className="row control-row">
               <div className="form-group">
                 <div className="col-md-9" >
-                  <label htmlFor="hours"> Hours  </label>
+                  <label htmlFor="hours"> Hours </label>
                 </div>
                 <div className="col-md-9">
                   <input id="hour" className="form-control" type="number" defaultValue={parseInt(currentTime.format('HH'))} onChange={this.handleChange} />
@@ -72,10 +51,18 @@ class Timer extends Component {
               </div>
               <div className="form-group">
                 <div className="col-md-9">
-                  <label htmlFor="hours"> Minutes  </label>
+                  <label htmlFor="hours"> Minutes </label>
                 </div>
                 <div className="col-md-9">
                   <input id="minute" className="form-control" type="number" defaultValue={parseInt(currentTime.format('mm'))} onChange={this.handleChange} />
+                </div>
+              </div>
+              <div className="form-group">
+                <div className="col-md-9">
+                  <label htmlFor="hours"> Seconds </label>
+                </div>
+                <div className="col-md-9">
+                  <input id="minute" className="form-control" type="number" defaultValue={parseInt(currentTime.format('ss'))} onChange={this.handleChange} />
                 </div>
               </div>
             </div>

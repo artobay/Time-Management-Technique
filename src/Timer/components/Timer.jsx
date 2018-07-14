@@ -4,7 +4,7 @@ import TimerDisplay from './TimerDisplay.jsx';
 import TimerButton from './TimerButton.jsx';
 
 
-// we need to the timing so we are going to refactor it to class component
+
 class Timer extends Component {
   constructor() {
     super();
